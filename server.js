@@ -8,6 +8,19 @@ app.use(express.json());
 
 // Requests
 
+// Get data created
+app.get("/", (req, res) => {
+  Zuri.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.send(`Error: ${err.message}`);
+    });
+});
+
+
+
 // Create Payload
 app.post("/apis/zuridata/create", async (req, res) => {
   const { name, email, country } = req.body;
@@ -29,17 +42,6 @@ app.post("/apis/zuridata/create", async (req, res) => {
     });
 });
 
-
-// Get data created
-app.get("/", (req, res) => {
-  Zuri.find()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      res.send(`Error: ${err.message}`);
-    });
-});
 
 
 // Updates Data
