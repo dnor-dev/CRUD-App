@@ -1,12 +1,10 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const Zuri = require("./models/zuriSchema");
 require("./config/dbConnect")();
 
 const app = express();
 app.use(express.json());
 
-dotenv.config();
 
 // Requests
 
@@ -33,7 +31,7 @@ app.post("/apis/zuridata/create", async (req, res) => {
 
 
 // Get data created
-app.get("/apis/zuridata/", (req, res) => {
+app.get("/", (req, res) => {
   Zuri.find()
     .then((result) => {
       res.send(result);
