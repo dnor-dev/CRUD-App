@@ -9,7 +9,7 @@ app.use(express.json());
 // Requests
 
 // Get data created
-app.get("/", (req, res) => {
+app.get("/apis/zuridata/", (req, res) => {
   Zuri.find()
     .then((result) => {
       res.send(result);
